@@ -1,25 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { Layout, Menu } from 'antd'
+import { Link } from 'react-router-dom'
+
+import 'antd/dist/antd.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout>
+      <Layout.Header>
+        <Menu theme="dark" mode="horizontal">
+          <Menu.Item>
+            <Link to="/notify">notify</Link>
+          </Menu.Item>
+          <Menu.Item>
+            <Link to="/app-react">app-react</Link>
+          </Menu.Item>
+          <Menu.Item>
+            <Link to="/notify">notify3</Link>
+          </Menu.Item>
+        </Menu>
+      </Layout.Header>
+      <Layout.Content>
+        <div id="qiankun" style={{height: 'calc(100vh - 64px)'}}></div>
+      </Layout.Content>
+    </Layout>
   );
 }
 

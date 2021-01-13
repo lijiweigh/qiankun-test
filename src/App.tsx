@@ -1,31 +1,37 @@
 import React from 'react';
 import './App.css';
 import { Layout, Menu } from 'antd'
-import { Link } from 'react-router-dom'
+import { Link, withRouter, RouteComponentProps } from 'react-router-dom'
 
 import 'antd/dist/antd.css';
 
-function App() {
+function App(props: RouteComponentProps) {
   return (
-    <Layout>
-      <Layout.Header>
+    <Layout style={{background: '#fff'}}>
+      <Layout.Header style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        zIndex: 99,
+        width: '100%'
+      }}>
         <Menu theme="dark" mode="horizontal">
           <Menu.Item>
-            <Link to="/notify">notify</Link>
+            <Link to="/app-vue/template">notify</Link>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/app-react">app-react</Link>
+            <Link to="/app-react/form/createForm">app-react</Link>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/notify">notify3</Link>
+            <span onClick={() => props.history.push('/app-react/form/formList')}>notify3</span>
           </Menu.Item>
         </Menu>
       </Layout.Header>
       <Layout.Content>
-        <div id="qiankun" style={{height: 'calc(100vh - 64px)'}}></div>
+        <div id="qiankun" style={{minHeight: 'calc(100vh - 64px)', paddingTop: '64px'}}></div>
       </Layout.Content>
     </Layout>
   );
 }
 
-export default App;
+export default withRouter(App);

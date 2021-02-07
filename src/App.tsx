@@ -4,6 +4,8 @@ import { Layout, Menu } from 'antd'
 import { Link, withRouter, RouteComponentProps } from 'react-router-dom'
 
 import 'antd/dist/antd.css';
+import './App.less'
+// import  './App.module.less'
 
 function App(props: RouteComponentProps) {
   return (
@@ -29,6 +31,7 @@ function App(props: RouteComponentProps) {
       </Layout.Header>
       <Layout.Content>
         <div id="qiankun" style={{minHeight: 'calc(100vh - 64px)', paddingTop: '64px'}}></div>
+        <div className="test">adsdasasdsasds</div>
       </Layout.Content>
     </Layout>
   );
